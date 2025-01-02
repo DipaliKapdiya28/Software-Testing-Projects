@@ -1,0 +1,502 @@
+{
+	"info": {
+		"_postman_id": "883c8a2d-2e3e-48ab-9c5a-fb91dd079cd7",
+		"name": "LIVE Project #2 - Zenler API Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33657922",
+		"_collection_link": "https://www.postman.com/spaceflight-pilot-80981358/workspace/rest-api-testing/collection/33657922-883c8a2d-2e3e-48ab-9c5a-fb91dd079cd7?action=share&source=collection_link&creator=33657922"
+	},
+	"item": [
+		{
+			"name": "Get User List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.equal(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validate the response code\", function () {",
+							"    pm.expect(pm.response.code).to.equal(200);",
+							"});",
+							"",
+							"pm.test(\"Validate the message field\", function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData.message).to.be.a('string');",
+							"});",
+							"",
+							"pm.test(\"Validate the data field\", function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData.data).to.be.an('object');",
+							"});",
+							"",
+							"",
+							"pm.test(\"Verify that the 'items' array is present and contains at least one element\", function () {",
+							"  const responseData = pm.response.json();",
+							"  ",
+							"  pm.expect(responseData).to.be.an('object');",
+							"  pm.expect(responseData.data).to.be.an('object');",
+							"  pm.expect(responseData.data.items).to.be.an('array').and.to.have.lengthOf.at.least(1, \"Array should contain at least one element\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "WAXRZCYCXUSVXLL5KF2RDUO3IMHLDCML",
+						"type": "text"
+					},
+					{
+						"key": "X-Account-Name",
+						"value": "initacademy",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.newzenler.com/api/v1/users?orderby=&role[]=4",
+					"protocol": "https",
+					"host": [
+						"api",
+						"newzenler",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "orderby",
+							"value": ""
+						},
+						{
+							"key": "order",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "role[]",
+							"value": "3",
+							"disabled": true
+						},
+						{
+							"key": "role[]",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Courses",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "WAXRZCYCXUSVXLL5KF2RDUO3IMHLDCML",
+						"type": "text"
+					},
+					{
+						"key": "X-Account-Name",
+						"value": "initacademy",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.newzenler.com/api/v1/courses?limit=&page=&orderby=&order=&search=&type=&status=",
+					"protocol": "https",
+					"host": [
+						"api",
+						"newzenler",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"courses"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": ""
+						},
+						{
+							"key": "page",
+							"value": ""
+						},
+						{
+							"key": "orderby",
+							"value": ""
+						},
+						{
+							"key": "order",
+							"value": ""
+						},
+						{
+							"key": "search",
+							"value": ""
+						},
+						{
+							"key": "type",
+							"value": ""
+						},
+						{
+							"key": "role[]",
+							"value": "3",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "WAXRZCYCXUSVXLL5KF2RDUO3IMHLDCML",
+						"type": "text"
+					},
+					{
+						"key": "X-Account-Name",
+						"value": "initacademy",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "177",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"Pramod\",\n    \"last_name\": \"Dutta\",\n    \"email\": \"pramoddutta@live.com\",\n    \"password\": \"Test@4321\",\n    \"commission\" : 10,\n    \"roles\": [\n        4\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.newzenler.com/api/v1/users",
+					"protocol": "https",
+					"host": [
+						"api",
+						"newzenler",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "order",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "role[]",
+							"value": "3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update the User",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "WAXRZCYCXUSVXLL5KF2RDUO3IMHLDCML",
+						"type": "text"
+					},
+					{
+						"key": "X-Account-Name",
+						"value": "initacademy",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "177",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"AmanJi\",\n    \"last_name\": \"Dutta\",\n    \"email\": \"pramoddutta@live.com\",\n    \"password\": \"Test@4321\",\n    \"commission\" : 10,\n    \"roles\": [\n        4\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.newzenler.com/api/v1/users/36690.65360dea0b39f",
+					"protocol": "https",
+					"host": [
+						"api",
+						"newzenler",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"36690.65360dea0b39f"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "order",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "role[]",
+							"value": "3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update the User Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.equal(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validate the response_code is 0\", function () {",
+							"  const responseData = pm.response.json();",
+							"  ",
+							"  pm.expect(responseData.response_code).to.equal(0);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validate the message is an empty string\", function () {",
+							"  const responseData = pm.response.json();",
+							"  ",
+							"  pm.expect(responseData.message).to.equal(\"\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Data is an empty string\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData.data).to.be.an('string');",
+							"    pm.expect(responseData.data).to.be.empty;",
+							"});",
+							"",
+							"",
+							"pm.test(\"User with ID 36690.65360dea0b39f has been deleted successfully\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.response_code).to.equal(200);",
+							"    pm.expect(responseData.message).to.equal(\"success\");",
+							"    pm.expect(responseData.data).to.equal(\"User deleted successfully\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "WAXRZCYCXUSVXLL5KF2RDUO3IMHLDCML",
+						"type": "text"
+					},
+					{
+						"key": "X-Account-Name",
+						"value": "initacademy",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "177",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"AmanJi\",\n    \"last_name\": \"Dutta\",\n    \"email\": \"pramoddutta@live.com\",\n    \"password\": \"Test@4321\",\n    \"commission\" : 10,\n    \"roles\": [\n        4\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.newzenler.com/api/v1/users/36690.65360dea0b39f",
+					"protocol": "https",
+					"host": [
+						"api",
+						"newzenler",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"36690.65360dea0b39f"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "order",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "role[]",
+							"value": "3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

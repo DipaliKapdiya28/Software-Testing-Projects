@@ -1,0 +1,31 @@
+{
+	"info": {
+		"_postman_id": "d2b17863-378c-4796-b38e-aa067070e2b0",
+		"name": "Upload & Download",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33657922",
+		"_collection_link": "https://www.postman.com/spaceflight-pilot-80981358/workspace/rest-api-testing/collection/33657922-d2b17863-378c-4796-b38e-aa067070e2b0?action=share&source=collection_link&creator=33657922"
+	},
+	"item": [
+		{
+			"name": "UploadFile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://the-internet.herokuapp.com/upload",
+					"protocol": "https",
+					"host": [
+						"the-internet",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
